@@ -2,14 +2,16 @@ var total = 0;
 var circ_count;
 var stage, layer;
 var level = 0;
+var score = 0;
 var level_colors = [['gray', 'Gray'],
 										['purple', 'Purple'],
 										['green', 'Green'],
 										['yellow', 'Yellow'],
 										['pink', 'Pink']]
 var encouragements = ['Great!', 'Wow!', 'Stellar!', 'I can\'t believe it!', 'YOU DID IT!!!', 'I\'m Crying right now!', 'Amazing!'];
-
+var score_val;
 $(function() {
+	score_val = $('#score-val');
 	$('#diff-select').on('change', function() {
 		$('#difficulty').hide();
 		circ_count = parseInt($(this).val())
@@ -44,6 +46,8 @@ function drawSomethingPretty(level_color) {
 
 			circle.on('mouseover touchstart', function() {
 				if (!this.tween) {
+					score += 1;
+					score_val.text(score);
 					this.tween = new Kinetic.Tween({
 						node: this,
 						radius: this.getRadius() + 300,
@@ -60,6 +64,7 @@ function drawSomethingPretty(level_color) {
 								setTimeout(function() {
 									total = 0;
 									level = (level + 1) % 5;
+									circ_count += 1;
 									var greatText = new Kinetic.Text({
 						        x: 0,
 						        y: HEIGHT/4,
@@ -75,7 +80,7 @@ function drawSomethingPretty(level_color) {
 										node: greatText,
 										duration: 1,
 										fontSize: 200,
-										x: WIDTH / 3,
+										x: WIDTH / 5,
 										easing: Kinetic.Easings.ElasticEaseOut(),
 										onFinish: function() {
 											$('#level-color').text(level_colors[level][1]);

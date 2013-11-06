@@ -9,18 +9,28 @@
 	height: 100%;
 }
 
-h1 {
+.heading {
 	position: absolute;
 	top: 0;
 	left: 50px;
+}
+
+h1 {
+	
 	font-family: helvetica;
 	letter-spacing: 3px;
 	color: #222;
 }
 
 #difficulty {
-	position: absolute;
-	top: 0;
-	right: 20px;
+	position: relative;
 	z-index: 1000;
+}
+
+.score {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	color: #222;
+
 }

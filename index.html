@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>recursion</title>
+<title>MakeAllTheCirclesGray</title>
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
 <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 <script type="text/javascript" src="javascripts/kinetic-v4.7.3.min.js"></script>
@@ -10,22 +10,27 @@
 
 </head>
 <body>
+	<div class="heading">
 	<h1>Why not make all the Circles <span id="level-color">Gray</span>?</h1>
-	<div id="difficulty">
-		<label for="difficulty">How hard should this be?</label>
-		<select name="difficulty" id="diff-select">
-			<option value=""></option>
-			<option value="5">5</option>
-			<option value="10">10</option>
-			<option value="15">15</option>
-			<option value="20">20</option>
-			<option value="25">25</option>
-			<option value="30">30</option>
-			<option value="35">35</option>
-			<option value="40">40</option>
-			<option value="45">45</option>
-			<option value="50">50</option>
-		</select>
+		<div id="difficulty">
+			<label for="difficulty">How hard should this be?</label>
+			<select name="difficulty" id="diff-select">
+				<option value=""></option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+				<option value="25">25</option>
+				<option value="30">30</option>
+				<option value="35">35</option>
+				<option value="40">40</option>
+				<option value="45">45</option>
+				<option value="50">50</option>
+			</select>
+		</div>
+	</div>
+	<div class="score">
+		Score: <span id="score-val">0</span>
 	</div>
 	<div id="main-container">
 	</div>
