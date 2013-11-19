@@ -9,12 +9,15 @@ var level_colors = [['gray', 'Gray'],
 										['yellow', 'Yellow'],
 										['pink', 'Pink']]
 var encouragements = ['Great!', 'Wow!', 'Stellar!', 'I can\'t believe it!', 'YOU DID IT!!!', 'I\'m Crying right now!', 'Amazing!'];
-var score_val;
+var color_choices = ["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#6a3d9a","#ffff99","#b15928"]
+var score_val, circles_left;
 $(function() {
 	score_val = $('#score-val');
+	circles_left = $('#circles-left');
 	$('#diff-select').on('change', function() {
 		$('#difficulty').hide();
-		circ_count = parseInt($(this).val())
+		circ_count = parseInt($(this).val());
+		circles_left.html(circ_count);
 		drawSomethingPretty(level_colors[level][0]);
 	})
 	
@@ -39,8 +42,8 @@ function drawSomethingPretty(level_color) {
 				radius: radius,
 				x: Math.random() * WIDTH,
 				y: Math.random() * HEIGHT,
-				stroke: '#'+Math.floor(Math.random()*16777215).toString(16),
-				strokeWidth: 2
+				stroke: color_choices[Math.floor(Math.random() * color_choices.length)], //'#'+Math.floor(Math.random()*16777215).toString(16),
+				strokeWidth: 4
 			});
 			layer.add(circle);
 
